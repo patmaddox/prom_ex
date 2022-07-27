@@ -23,6 +23,5 @@ prometheus:
 
       remote_write:
         - url: "<%= @prometheus_url %>"
-          basic_auth:
-            username: "<%= @prometheus_username %>"
-            password: "<%= @prometheus_password %>"
+          sigv4:
+            region: us-east-1
