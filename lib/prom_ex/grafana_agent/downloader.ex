@@ -14,6 +14,7 @@ defmodule PromEx.GrafanaAgent.Downloader do
     {"0.23.0", :darwin, :arm64} => "e94f7fd0e1ef9fb497cff4f1260cc22967d6a5b003dd2c99f494f9e457482dda",
     {"0.23.0", :linux, :amd64} => "9c846f8a1f7829f257759d63db6725831d7bfaba36f1689cdb1a12e92bb91b75",
     {"0.23.0", :linux, :arm64} => "3b85ce425026302028f7f07d41fa4fc14e9f028ffe7c9067194753cfa719e0d3",
+    {"0.23.0", :freebsd, :amd64} => "ec067782cc0fcd9c4e951fd6dd0d8013df7f5ed2cd0acb495ab3acfeb6e72b92",
 
     # All the SHA hashes for version 0.22.0
     {"0.22.0", :darwin, :amd64} => "1641b70c63fd077a7218b4f7edfca2ef96d103753f6e202611a694306c58ce58",
@@ -90,6 +91,7 @@ defmodule PromEx.GrafanaAgent.Downloader do
       {{:unix, :darwin}, arch, 64} when arch in ~w(arm aarch64) -> {agent_version, :darwin, :arm64}
       {{:unix, :darwin}, "x86_64", 64} -> {agent_version, :darwin, :amd64}
       {{:unix, :linux}, "aarch64", 64} -> {agent_version, :linux, :arm64}
+      {{:unix, :freebsd}, "amd64", 64} -> {agent_version, :freebsd, :amd64}
       {{:unix, _osname}, arch, 64} when arch in ~w(x86_64 amd64) -> {agent_version, :linux, :amd64}
       unsupported_arch -> raise "Unsupported architecture: #{inspect(unsupported_arch)}"
     end
