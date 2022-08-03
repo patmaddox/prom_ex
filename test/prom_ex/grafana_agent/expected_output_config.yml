@@ -24,6 +24,5 @@ prometheus:
 
       remote_write:
         - url: "www.my-prometheus.com"
-          basic_auth:
-            username: "prom_user"
-            password: "prom_pass"
+          sigv4:
+            region: us-east-1

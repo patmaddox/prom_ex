@@ -24,3 +24,5 @@ prometheus:
 
       remote_write:
         - url: "<%= @prometheus_url %>"
+          sigv4:
+            region: us-east-1
