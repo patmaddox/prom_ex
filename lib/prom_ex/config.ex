@@ -154,10 +154,8 @@ defmodule PromEx.Config do
       read/write access to a directory in order to download and copy the GrafanaAgent binary. This is the
       full path to that directory.
 
-    * `:config_opts` - The configuration file that GrafanaAgent is started with. This option
-      can either accept an MFA that will return a string of the full path where the YAML configuration
-      file is, or a keyword list with options so that PromEx can generate a config file for you. If you
-      take the route where PromEx generates a config file for you, you must provide the following
+    * `:config_opts` - The configuration file that GrafanaAgent is started with. This is a keyword list
+      with options so that PromEx can generate a config file for you. You must provide the following
       options:
 
       * `:metrics_server_path` - The path where the Prometheus metrics are exposed.
@@ -189,6 +187,8 @@ defmodule PromEx.Config do
       * `:prometheus_username` - The username to the hosted Prometheus instance
 
       * `:prometheus_password` - The password to the hosted Prometheus instance
+
+      * `:template_file` - The full path to the template used to render the agent config file.
 
   * `:metrics_server` - This key contains the configuration information needed to run a standalone
     HTTP server powered by Cowboy. This server provides a lightweight solution to serving up PromEx
